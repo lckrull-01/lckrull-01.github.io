@@ -100,7 +100,7 @@ d3.csv("data/state_results.csv", function(d, i, columns) {
       .attr("x", function(d) { return x(d.data.State); })
       .attr("y", function(d) { return y(d[1]); })
       .attr("height", function(d) { return y(d[0]) - y(d[1]); })
-      .attr("width", x.bandwidth());
+      .attr("width", x.bandwidth())
     .on("mouseover", function() { tooltip.style("display", null); })
     .on("mouseout", function() { tooltip.style("display", "none"); })
     .on("mousemove", function(d) {
@@ -139,6 +139,27 @@ d3.csv("data/state_results.csv", function(d, i, columns) {
     .enter().append("g")
       .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
 
+  // Prep the tooltip bits, initial display is hidden
+  var tooltip = svg.append("g")
+    .attr("class", "tooltip")
+    .style("display", "none");
+      
+  tooltip.append("rect")
+    .attr("width", 60)
+    .attr("height", 20)
+    .attr("fill", "white")
+    .style("opacity", 0.5);
+
+  tooltip.append("text")
+    .attr("x", 30)
+    .attr("dy", "1.2em")
+    .style("text-anchor", "middle")
+    .attr("font-size", "12px")
+    .attr("font-weight", "bold")
+    .attr("font-family", "TW Cen MT");
+
+
+
   legend.append("rect")
       .attr("x", width - 19)
       .attr("width", 19)
@@ -151,11 +172,7 @@ d3.csv("data/state_results.csv", function(d, i, columns) {
       .attr("dy", "0.32em")
       .text(function(d) { return d; });
 
-  svg.append("text")
-  .attr("x", w / 2 )
-  .attr("y", 0)
-  .style("text-anchor", "middle")
-  .text("Title of Diagram");
+
 });
 
 </script>
