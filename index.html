@@ -75,8 +75,8 @@ var map = new mapboxgl.Map({
  map.on('load', function() {
   //Add a lyer showing the light rail stations
   map.addSource('stops', {
-    type: 'vector',
-    url: 'mapbox://tooledesign.bq55wgf4'
+    'type': 'vector',
+    'url': 'mapbox://tooledesign.bq55wgf4'
   });
   map.addLayer({
     'id': 'stops',
