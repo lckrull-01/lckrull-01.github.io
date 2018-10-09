@@ -1,3 +1,20 @@
+Skip to content
+
+Search or jump to…
+
+Pull requests
+Issues
+Marketplace
+Explore
+ @lckrull-01 Sign out
+0
+0 0 lckrull-01/lckrull-01.github.io
+ Code  Issues 0  Pull requests 0  Projects 0  Wiki  Insights  Settings
+lckrull-01.github.io/index.html
+f5c879d  an hour ago
+@lckrull-01 lckrull-01 popups!
+
+113 lines (103 sloc)  38.1 KB
 <!DOCTYPE html>
 <html>
 <head>
@@ -74,24 +91,26 @@ var map = new mapboxgl.Map({
 
  map.on('load', function() {
   //Add a lyer showing the light rail stations
-  map.addSource('stops', {
-    'type': 'vector',
-    'url': 'mapbox://tooledesign.bq55wgf4'
-  });
+
   map.addLayer({
     'id': 'stops',
+    'source': {
+      'type': 'vector'.
+      'url': 'mapbox://tooledesign.bq55wgf4'
+    }
+    'source-layer': 'Stops_July2017-d7u9fs'
     'type': 'circle',
-    'source': 'stops',
     'layout': {'visbility': 'visible'
-  },
+    },
     'paint': {
       'circle-radius' : 8,
       'circle-color': 'rgba(55,148,179,1)'
     },
-    'source-layer': 'Stops_July2017-d7u9fs'
+
   });
 });
 var toggleableLayerIds= ['stops'];
+
 
 
 for (var i = 0; i < toggleableLayerIds.length; i++) {
