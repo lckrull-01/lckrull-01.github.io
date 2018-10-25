@@ -23,7 +23,7 @@
   }
 
   .sidebar {
-    width: 33.3333%;
+    width: 20%;
   }
  
   .map {
@@ -107,18 +107,19 @@ var map = new mapboxgl.Map({
 
   map.addLayer({
     'id': 'stops',
+    'type': 'symbol',
     'source': {
       'type': 'vector',
       'url': 'mapbox://tooledesign.bq55wgf4'
     },
-    'source-layer': 'Stops_July2017-d7u9fs',
-    'type': 'circle',
-    'layout': {'visbility': 'visible'
-    },
-    'paint': {
-      'circle-radius' : 8,
-      'circle-color': 'rgba(55,148,179,1)'
-    },
+      'source-layer': 'Stops_July2017-d7u9fs',
+//     'type': 'circle',
+//     'layout': {'visbility': 'visible'
+//     },
+//     'paint': {
+//       'circle-radius' : 8,
+//       'circle-color': 'rgba(55,148,179,1)'
+//     },
 
   });
 });
