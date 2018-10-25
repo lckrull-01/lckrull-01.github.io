@@ -109,8 +109,24 @@ var map = new mapboxgl.Map({
   //Add a lyer showing the light rail stations
 
   map.addSource('stops', {
-    type: 'vector',
-    url: 'mapbox://tooledesign.bq55wgf4'
+      type: 'vector',
+      url: 'mapbox://mapbox.2opop9hr'
+  });
+  map.addLayer({
+      'id': 'museums',
+      'type': 'circle',
+      'source': 'museums',
+      'layout': {
+          'visibility': 'visible'
+      },
+      'paint': {
+          'circle-radius': 8,
+          'circle-color': 'rgba(55,148,179,1)'
+      },
+      'source-layer': 'museum-cusco'
+  });
+    //    type: 'vector',
+//    url: 'mapbox://tooledesign.bq55wgf4'
 //    },
 //      'source-layer': 'Stops_July2017-d7u9fs'
 //     'type': 'circle',
@@ -121,9 +137,9 @@ var map = new mapboxgl.Map({
 //       'circle-color': 'rgba(55,148,179,1)'
 //     },
 
-  });
-});
-var toggleableLayerIds= ['Stops'];
+//  });
+//});
+var toggleableLayerIds= ['stops'];
 
 
 
