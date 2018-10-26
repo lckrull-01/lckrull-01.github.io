@@ -100,9 +100,12 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoidG9vbGVkZXNpZ24iLCJhIjoiNTcyZTIwNmExODVmYTAzZDA0NWQ0YTFlNTA1YWMyZjcifQ.5bYQWlwCYVUnqJFPTx1DWg';
 var map = new mapboxgl.Map({
   container: 'map',
-  style: 'mapbox://styles/tooledesign/cjn0xa38m5hvf2snxswn9fxge',
-  center: [-121.891967, 37.364901],
-  zoom: 10.6
+  style: 'mapbox://styles/mapbox/streets-v9',
+  zoom: 15,
+  center: [-71.97722138410576, -13.517379300798098]  
+//   style: 'mapbox://styles/tooledesign/cjn0xa38m5hvf2snxswn9fxge',
+//   center: [-121.891967, 37.364901],
+//   zoom: 10.6
 });
 
  map.on('load', function() {
@@ -115,7 +118,7 @@ var map = new mapboxgl.Map({
   map.addLayer({
       'id': 'museums',
       'type': 'circle',
-      'source': 'museums',
+      'source': 'mapbox://mapbox.2opop9hr',
       'layout': {
           'visibility': 'visible'
       },
@@ -125,6 +128,28 @@ var map = new mapboxgl.Map({
       },
       'source-layer': 'museum-cusco'
   });
+   
+    map.addSource('contours', {
+        type: 'vector',
+        url: 'mapbox://mapbox.mapbox-terrain-v2'
+    });
+    map.addLayer({
+        'id': 'contours',
+        'type': 'line',
+        'source': 'contours',
+        'source-layer': 'contour',
+        'layout': {
+            'visibility': 'visible',
+            'line-join': 'round',
+            'line-cap': 'round'
+        },
+        'paint': {
+            'line-color': '#877b59',
+            'line-width': 1
+        }
+    });
+
+   
     //    type: 'vector',
 //    url: 'mapbox://tooledesign.bq55wgf4'
 //    },
@@ -139,7 +164,7 @@ var map = new mapboxgl.Map({
 
 //  });
 });
-var toggleableLayerIds= ['stops'];
+var toggleableLayerIds = [ 'contours', 'museums' ];
 
 
 
